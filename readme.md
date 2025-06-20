@@ -1,4 +1,4 @@
-1 # 📊 Análise de Empresas por CNAE
+📊 Análise de Empresas por CNAE
 
 Este projeto tem como objetivo analisar o mercado de empresas brasileiras com base nos dados públicos da Receita Federal, utilizando o código CNAE como chave de segmentação. A análise visa identificar potenciais clientes, oportunidades regionais e estimar o market share atual e potencial por produto.
 
