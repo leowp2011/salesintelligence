@@ -14,6 +14,9 @@ Contém os scripts do repositório [rictom/cnpj-sqlite](https://github.com/ricto
 - Descompactar os arquivos e importar para um banco de dados SQLite;
 - Gerar um banco `.db` com todas as tabelas da base CNPJ atualizada.
 
+O estudo em questão utilizará o resultado desta etapa no seguinte modelo.
+![Relacionamentos](images/1-relacionamentos.png)
+
 
 ---
 
