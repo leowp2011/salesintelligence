@@ -42,7 +42,7 @@ Os dados gerados nas etapas anteriores são consumidos no Power BI para criaçã
 Os dashboards e análises devem ser atualizados sempre que as etapas anteriores de extração, carregamento e transformação dos dados forem concluídas, garantindo que as informações reflitam os dados mais recentes disponíveis.
 
 Análises criadas:
-![PowerBI](images/3-powerbi.png)
+![PowerBI](images/3-power_bi.png)
 
 
 
