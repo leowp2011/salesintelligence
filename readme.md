@@ -39,6 +39,13 @@ Nesta etapa, os dados são preparados para análise no Power BI, melhorando a pe
 
 Os dados gerados nas etapas anteriores são consumidos no Power BI para criação dos dashboards e análises de mercado.
 
+Os dashboards e análises devem ser atualizados sempre que as etapas anteriores de extração, carregamento e transformação dos dados forem concluídas, garantindo que as informações reflitam os dados mais recentes disponíveis.
+
+Análises criadas:
+![PowerBI](images/3-powerbi.png)
+
+
+
 ---
 
 

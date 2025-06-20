@@ -1,0 +1,50 @@
+table 'Vendas potenciais por região'
+	lineageTag: e2c23cad-da0d-4bb2-aa6f-15d96c98bbf7
+
+	column Região
+		dataType: string
+		lineageTag: 618c35f9-4417-4b2b-8800-60f91e34dbc5
+		summarizeBy: none
+		sourceColumn: Região
+
+		annotation SummarizationSetBy = Automatic
+
+	column Produto
+		dataType: string
+		lineageTag: 46440089-5d00-4475-b5ae-81e54ba3f0b4
+		summarizeBy: none
+		sourceColumn: Produto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Potencial de venda'
+		dataType: int64
+		formatString: 0
+		lineageTag: c47fddc8-3925-4b9f-9562-afff9dfe7e93
+		summarizeBy: sum
+		sourceColumn: Potencial de venda
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Vendas potenciais por região' = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jZLBDsFAEIZfZdITCYmi6FnoDUFcxGHYxSbbHVntrW/jUbyYLZq2kq2d28wm3/z//Lvfexms+UU8HwSfymCliaVJ0UM5p4Srk0AJjMOOK4bQSpVgyPi9DZl36OS0bqWg3v6dl+9f2CY17IQXCmbxTcir2Sc0VpX5Qa8H1rLAItRnyq3UqAbWd4PJqoJIpwhzSdpsQFnOwyaWDbal+IiMdC5uirFQ13c8GYydaAvSpdGGo/kuPn9gVmlh4CJtylWiqbt8E+1X8wcu0n5hljwnTsqMz+JrNPocuUZQpdkiGP6DHV4=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Cabeçalhos Promovidos", "| Região       | Produto               | Potencial de Venda (unidades) |", Splitter.SplitTextByDelimiter("|", QuoteStyle.Csv), {"| Região       | Produto               | Potencial de Venda (unidades) |.1", "| Região       | Produto               | Potencial de Venda (unidades) |.2", "| Região       | Produto               | Potencial de Venda (unidades) |.3", "| Região       | Produto               | Potencial de Venda (unidades) |.4", "| Região       | Produto               | Potencial de Venda (unidades) |.5"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Dividir Coluna por Delimitador",{"| Região       | Produto               | Potencial de Venda (unidades) |.1", "| Região       | Produto               | Potencial de Venda (unidades) |.5"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Removidas", each ([#"| Região       | Produto               | Potencial de Venda (unidades) |.2"] <> " ------------ ")),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Linhas Filtradas",{{"| Região       | Produto               | Potencial de Venda (unidades) |.2", "Região"}, {"| Região       | Produto               | Potencial de Venda (unidades) |.3", "Produto"}, {"| Região       | Produto               | Potencial de Venda (unidades) |.4", "Potencial de venda"}})
+				in
+				    #"Colunas Renomeadas"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

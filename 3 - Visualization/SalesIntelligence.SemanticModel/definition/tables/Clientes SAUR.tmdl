@@ -1,0 +1,38 @@
+table 'Clientes SAUR'
+	lineageTag: 5027a936-b741-4109-84f9-0d8167b8a335
+
+	measure Cobertura = ```
+			5000 / 30000 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 81823b43-4b2f-462f-8360-c2904eabbfb4
+
+	column Clientes
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b8ffe6d-6bc5-4829-b56e-97cceee2a207
+		summarizeBy: sum
+		sourceColumn: Clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Potenciais clientes'
+		dataType: int64
+		formatString: #,0
+		lineageTag: d9d3007b-ef73-4afd-b780-abf06de9be96
+		summarizeBy: sum
+		sourceColumn: Potenciais clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Clientes SAUR' = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjUwMFDSUTIC07GxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Clientes = _t, #"Potenciais clientes" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Clientes", Int64.Type}, {"Potenciais clientes", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
