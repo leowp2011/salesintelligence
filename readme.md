@@ -1,62 +1,64 @@
-📊 Análise de Empresas por CNAE
+# Análise de Mercado por CNAE
 
-Este projeto tem como objetivo analisar o mercado de empresas brasileiras com base nos dados públicos da Receita Federal, utilizando o código CNAE como chave de segmentação. A análise visa identificar potenciais clientes, oportunidades regionais e estimar o market share atual e potencial por produto.
+Este projeto tem como objetivo analisar o mercado brasileiro com base nos dados públicos da Receita Federal, utilizando o CNAE para segmentação e geração de KPIs que suportam decisões estratégicas.
 
-## 🗂 Estrutura do Projeto
+---
 
-O projeto está organizado em três etapas principais:
+## 1. Extract & Load
 
-### `1 - Extract & Load`
+Utilizamos o repositório [rictom/cnpj-sqlite](https://github.com/rictom/cnpj-sqlite) para:
 
-Contém os scripts do repositório [rictom/cnpj-sqlite](https://github.com/rictom/cnpj-sqlite), utilizados para:
+- Download e descompactação automatizada dos arquivos públicos da Receita Federal;
+- Importação dos dados para banco SQLite;
+- Geração do banco `.db` completo com todas as tabelas do CNPJ.
 
-- Fazer o download automatizado dos arquivos públicos de CNPJ da Receita Federal;
-- Descompactar os arquivos e importar para um banco de dados SQLite;
-- Gerar um banco `.db` com todas as tabelas da base CNPJ atualizada.
+Esta etapa prepara a base bruta para as transformações.
 
-O estudo em questão utilizará o resultado desta etapa no seguinte modelo.
 ![Relacionamentos](images/1-relacionamentos.png)
 
+---
+
+## 2. Transformation
+
+Nesta etapa, os dados são preparados para análise no Power BI, melhorando a performance e a qualidade das informações.
+
+**Pré-requisito:** A tabela `cnpj_input` deve conter os CNPJs dos clientes da empresa para limitar o escopo da análise aos CNAEs de interesse.
+
+| Script                                 | KPI Relacionado                          | Tabela Gerada                | Descrição Rápida                                          |
+|---------------------------------------|----------------------------------------|-----------------------------|----------------------------------------------------------|
+| `01_selecionar_empresas_ativas.sql`      | Total de empresas ativas por CNAE        | `d_empresas_ativas`           | Dimensão de empresas ativas filtradas para análise       |
+| `02_filtrar_estabelecimentos_validos.sql`| Quantidade de clientes ativos por CNAE    | `d_estabelecimentos_validos`  | Estabelecimentos válidos vinculados às empresas           |
+| `03_integrar_clientes_detalhados.sql`     | Base para taxa de atendimento do mercado  | `f_clientes_detalhados`       | Integra clientes com dados cadastrais detalhados          |
+| `04_calcular_taxa_atendimento_cnae.sql`   | Taxa de atendimento do mercado por CNAE   | `f_taxa_atendimento_cnae`     | Calcula a taxa de atendimento por CNAE                     |
+| `05_analise_receita_regional.sql`          | Receita e padrões de consumo regional     | `f_receita_regional_produto`  | Receita e volume por produto e região                      |
+| `06_simular_potencial_receita.sql`         | Potencial de receita regional por produto | `f_potencial_receita_simulada`| Estimativa de receita incremental por cenário de mercado  |
 
 ---
 
-### `2 - Transformation`
+## 3. Visualização e Análise
 
-Scripts SQL utilizados para:
-
-- Reduzir e tratar o banco original, que possui dezenas de GB;
-- Gerar tabelas intermediárias e finais com os dados relevantes para a análise;
-- Normalizar colunas como CNAE, natureza jurídica, situação cadastral, Simples/MEI, etc.;
-- Manter histórico mensal da base para análises comparativas.
-
-> 🔄 Essa etapa prepara os dados para consumo direto no Power BI, otimizando performance e facilitando análises recorrentes.
+Os dados gerados nas etapas anteriores são consumidos no Power BI para criação dos dashboards e análises de mercado.
 
 ---
 
-### `3 - Visualization`
 
-Contém os arquivos `.pbip` do Power BI, que representam a solução final de visualização, incluindo:
+## 🛠️ Tecnologias Utilizadas
 
-- Relatórios interativos com as KPIS levantadas inicialmente;
-- Métricas como taxa de atendimento de mercado, receita potencial por região, top produtos por segmento;
-- Versionamento completo para rastreamento de mudanças nas análises e visuais.
+- **GitHub**  
+  Plataforma para versionamento de código e hospedagem do repositório com os scripts e documentação do projeto.
 
-> 🧠 Essa camada transforma os dados brutos em insights acionáveis para tomada de decisão comercial.
+- **Python**  
+  Linguagem utilizada para automatizar o download, descompactação e pré-processamento dos dados públicos da Receita Federal.
 
----
+- **SQLite**  
+  Banco de dados leve utilizado para armazenar, tratar e consultar os dados extraídos da Receita Federal.
 
-## 🛠 Tecnologias Utilizadas
+- **DBeaver**  
+  Ferramenta gráfica para gerenciar e executar consultas SQL no banco SQLite, facilitando o desenvolvimento e análise.
 
-- Python (extração automatizada)
-- SQLite (armazenamento e transformação de dados)
-- SQL (tratamentos e modelagem)
-- Power BI (.pbip – visualização e análise)
-- VS Code (ambiente de desenvolvimento)
+- **Visual Studio Code**  
+  Editor de código usado para desenvolver os scripts Python e SQL com suporte a plugins e integração.
 
----
+- **Power BI**  
+  Plataforma de Business Intelligence para criação de dashboards interativos e análise visual dos KPIs extraídos.
 
-## 📄 Licença
-
-Este projeto é de uso acadêmico. Os dados utilizados são públicos e disponibilizados pela Receita Federal do Brasil. O uso comercial das análises deve respeitar os termos da fonte de dados original.
-
----
