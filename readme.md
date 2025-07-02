@@ -1,3 +1,40 @@
+# Análise de Mercado por CNAE
+
+Este projeto tem como objetivo analisar o mercado brasileiro a partir de dados públicos da Receita Federal, segmentando empresas por CNAE e cruzando com informações internas para geração de KPIs estratégicos.
+
+---
+
+## 📁 Estrutura de Pastas
+
+```
+.
+├── 1 - Extract & Load           # Criação do banco .db a partir dos dados públicos
+├── 2 - Transformation           # Script Python para gerar os dados analisáveis
+├── 3 - Visualization            # Arquivo .pbip do Power BI
+├── inputs/                      # Contém vendas.csv e leads.csv
+├── intermediarios/
+│   ├── bronze/                  # Dados extraídos e limpos (parquet)
+│   └── silver/                  # CNAEs e CNPJs alvo gerados
+├── outputs/
+│   └── gold/                    # Tabelas finais consumidas pelo Power BI (.parquet)
+└── images/                      # Prints e gráficos do projeto
+```
+
+---
+
+## 1️⃣ Extract & Load
+
+Nesta etapa, utilizamos o repositório [rictom/cnpj-sqlite](https://github.com/rictom/cnpj-sqlite) para:
+
+- Baixar e descompactar os arquivos públicos da Receita Federal;
+- Importar os dados para SQLite;
+- Gerar o banco `cnpj.db` com as tabelas de CNPJ, estabelecimento, empresas, sócios, etc.
+
+O banco gerado será salvo em:
+
+```
+1 - Extract & Load/dados-publicos/cnpj.db
+```
 
 Este banco é o ponto de partida para a etapa de transformação.
 
@@ -36,3 +73,42 @@ Este passo executa a geração dos dados analíticos com **Python + Dask + Panda
 ## 3️⃣ Visualization (Power BI)
 
 O arquivo Power BI (`.pbip`) está localizado em:
+
+```
+3 - Visualization/
+```
+
+### 📌 Requisitos:
+- Ajustar o parâmetro `CaminhoParquet` no Power BI para apontar para a pasta `outputs/gold` local
+- Atualizar os dados após a execução do script Python
+
+### 🎯 Dashboards incluídos:
+- Taxa de atendimento do mercado por CNAE
+- Volume de empresas ativas por porte e segmento
+- Potencial de receita por região
+- Comparativo entre clientes, leads e empresas do mercado
+
+![Dashboard](images/3-power_bi.png)
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+| Tecnologia            | Uso                                                                 |
+|------------------------|----------------------------------------------------------------------|
+| **Python**             | Automação do pipeline de dados com Dask, Pandas e PyArrow           |
+| **SQLite**             | Armazenamento intermediário de dados públicos da Receita Federal    |
+| **Power BI**           | Visualização de dados e criação dos dashboards                      |
+| **DBeaver**            | Gerenciamento e consulta do banco `.db`                             |
+| **Visual Studio Code** | Desenvolvimento de scripts Python e SQL                             |
+| **GitHub**             | Versionamento e controle do projeto                                 |
+
+---
+
+## ✅ Como Executar
+
+1. **Execute a etapa `Extract & Load`** para gerar o `cnpj.db`
+2. **Adicione os arquivos `vendas.csv` e `leads.csv` na pasta `inputs/`**
+3. **Execute o script `transformation.py` em `2 - Transformation`**
+4. **Abra o Power BI (`.pbip`) e atualize o parâmetro de caminho**
+5. **Atualize os dados no Power BI**
