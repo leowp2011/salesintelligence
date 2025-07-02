@@ -36,6 +36,7 @@ O banco gerado será salvo em:
 1 - Extract & Load/dados-publicos/cnpj.db
 ```
 
+O objetivo de ter utilizado esse método é facilitar as consultas SQL para validações e testes antes de criar o código .py. 
 Este banco é o ponto de partida para a etapa de transformação.
 
 ---
@@ -44,9 +45,35 @@ Este banco é o ponto de partida para a etapa de transformação.
 
 Este passo executa a geração dos dados analíticos com **Python + Dask + Pandas**.
 
-### 📂 Arquivos esperados em `inputs/`:
-- `vendas.csv`: lista de clientes reais com CNPJ
-- `leads.csv`: possíveis leads comerciais com CNPJ
+### 📂 Formato dos Arquivos de Input
+
+Os arquivos devem estar na pasta `inputs/` com os seguintes formatos:
+
+#### `vendas.csv`
+
+Contém os registros de vendas realizadas para clientes da empresa.
+
+| Coluna             | Descrição                                      |
+|--------------------|-----------------------------------------------|
+| `it-codigo`        | Código do item vendido                        |
+| `familia`          | Família do item                               |
+| `familia_comercial`| Classificação comercial da família            |
+| `cnpj`             | CNPJ do cliente                               |
+| `cliente`          | Nome ou descrição do cliente                  |
+| `valor`            | Valor da venda (pode conter casas decimais)  |
+
+➡️ Se alguma informação não estiver disponível, a coluna correspondente deve ser deixada **vazia**, mas o cabeçalho deve permanecer.
+
+#### `leads.csv`
+
+Contém os potenciais leads da área comercial.
+
+| Coluna   | Descrição                     |
+|----------|------------------------------|
+| `cnpj`   | CNPJ do lead (obrigatório)   |
+| `data`   | Data de prospecção (opcional)|
+
+➡️ A coluna `data` pode ser deixada vazia se não disponível, mas deve estar presente no cabeçalho.
 
 ### 📜 O script:
 - Filtra estabelecimentos ativos (`situacao_cadastral = '02'`)
