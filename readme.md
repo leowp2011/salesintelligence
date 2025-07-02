@@ -1,72 +1,38 @@
-# Análise de Mercado por CNAE
 
-Este projeto tem como objetivo analisar o mercado brasileiro com base nos dados públicos da Receita Federal, utilizando o CNAE para segmentação e geração de KPIs que suportam decisões estratégicas.
-
----
-
-## 1. Extract & Load
-
-Utilizamos o repositório [rictom/cnpj-sqlite](https://github.com/rictom/cnpj-sqlite) para:
-
-- Download e descompactação automatizada dos arquivos públicos da Receita Federal;
-- Importação dos dados para banco SQLite;
-- Geração do banco `.db` completo com todas as tabelas do CNPJ.
-
-Esta etapa prepara a base bruta para as transformações.
-
-![Relacionamentos](images/1-relacionamentos.png)
+Este banco é o ponto de partida para a etapa de transformação.
 
 ---
 
-## 2. Transformation
+## 2️⃣ Transformation
 
-Nesta etapa, os dados são preparados para análise no Power BI, melhorando a performance e a qualidade das informações.
+Este passo executa a geração dos dados analíticos com **Python + Dask + Pandas**.
 
-**Pré-requisito:** A tabela `cnpj_input` deve conter os CNPJs dos clientes da empresa para limitar o escopo da análise aos CNAEs de interesse.
+### 📂 Arquivos esperados em `inputs/`:
+- `vendas.csv`: lista de clientes reais com CNPJ
+- `leads.csv`: possíveis leads comerciais com CNPJ
 
-| Script                                 | KPI Relacionado                          | Tabela Gerada                | Descrição Rápida                                          |
-|---------------------------------------|----------------------------------------|-----------------------------|----------------------------------------------------------|
-| `01_selecionar_empresas_ativas.sql`      | Total de empresas ativas por CNAE        | `d_empresas_ativas`           | Dimensão de empresas ativas filtradas para análise       |
-| `02_filtrar_estabelecimentos_validos.sql`| Quantidade de clientes ativos por CNAE    | `d_estabelecimentos_validos`  | Estabelecimentos válidos vinculados às empresas           |
-| `03_integrar_clientes_detalhados.sql`     | Base para taxa de atendimento do mercado  | `f_clientes_detalhados`       | Integra clientes com dados cadastrais detalhados          |
-| `04_calcular_taxa_atendimento_cnae.sql`   | Taxa de atendimento do mercado por CNAE   | `f_taxa_atendimento_cnae`     | Calcula a taxa de atendimento por CNAE                     |
-| `05_analise_receita_regional.sql`          | Receita e padrões de consumo regional     | `f_receita_regional_produto`  | Receita e volume por produto e região                      |
-| `06_simular_potencial_receita.sql`         | Potencial de receita regional por produto | `f_potencial_receita_simulada`| Estimativa de receita incremental por cenário de mercado  |
-
----
-
-## 3. Visualização e Análise
-
-Os dados gerados nas etapas anteriores são consumidos no Power BI para criação dos dashboards e análises de mercado.
-
-Os dashboards e análises devem ser atualizados sempre que as etapas anteriores de extração, carregamento e transformação dos dados forem concluídas, garantindo que as informações reflitam os dados mais recentes disponíveis.
-
-Análises criadas:
-![PowerBI](images/3-power_bi.png)
-
-
-
+### 📜 O script:
+- Filtra estabelecimentos ativos (`situacao_cadastral = '02'`)
+- Gera os CNAEs utilizados pelos clientes
+- Identifica os CNPJs de interesse para análise de mercado
+- Realiza joins com dados cadastrais, tributários e de porte
+- Cria dimensões: CNAE, Município, Porte da Empresa e Regime Tributário
+- Gera arquivos `.parquet` finais na pasta `outputs/gold`
 
 ---
 
+### Tabelas geradas (gold):
 
-## 🛠️ Tecnologias Utilizadas
+| Nome do Arquivo                      | Tipo         | Descrição                                                        |
+|-------------------------------------|--------------|------------------------------------------------------------------|
+| `fato_empresas.parquet`             | Fato         | Empresas ativas com dados enriquecidos e flags (cliente, lead)   |
+| `dim_cnae.parquet`                  | Dimensão     | CNAEs com seções e descrições                                    |
+| `dim_municipio.parquet`            | Dimensão     | Municípios ativos com nome, UF e CEP                             |
+| `dim_porte_empresa.parquet`        | Dimensão     | Tabela de porte com códigos e descrições                         |
+| `dim_regime_tributario.parquet`    | Dimensão     | Regime tributário (MEI, Simples, Lucro Real/Presumido)           |
 
-- **GitHub**  
-  Plataforma para versionamento de código e hospedagem do repositório com os scripts e documentação do projeto.
+---
 
-- **Python**  
-  Linguagem utilizada para automatizar o download, descompactação e pré-processamento dos dados públicos da Receita Federal.
+## 3️⃣ Visualization (Power BI)
 
-- **SQLite**  
-  Banco de dados leve utilizado para armazenar, tratar e consultar os dados extraídos da Receita Federal.
-
-- **DBeaver**  
-  Ferramenta gráfica para gerenciar e executar consultas SQL no banco SQLite, facilitando o desenvolvimento e análise.
-
-- **Visual Studio Code**  
-  Editor de código usado para desenvolver os scripts Python e SQL com suporte a plugins e integração.
-
-- **Power BI**  
-  Plataforma de Business Intelligence para criação de dashboards interativos e análise visual dos KPIs extraídos.
-
+O arquivo Power BI (`.pbip`) está localizado em:

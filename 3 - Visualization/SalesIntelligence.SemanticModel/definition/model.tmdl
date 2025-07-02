@@ -6,16 +6,20 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Clientes SAUR","Vendas potenciais por região"]
+annotation PBI_QueryOrder = ["fato_empresas","dim_municipio","dim_cnae","dim_regime_tributario","_Medidas","dim_porte_empresa"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+annotation PBIDesktopVersion = 2.144.1155.0 (25.06)+46435b07013d2a234d7fd007083a9e70b8e79f1c
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table 'Clientes SAUR'
-ref table 'Vendas potenciais por região'
+ref table fato_empresas
+ref table dim_municipio
+ref table dim_cnae
+ref table dim_regime_tributario
+ref table _Medidas
+ref table dim_porte_empresa
 
 ref cultureInfo pt-BR
 
