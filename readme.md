@@ -44,6 +44,7 @@ Este banco é o ponto de partida para a etapa de transformação.
 ## 2️⃣ Transformation
 
 Este passo executa a geração dos dados analíticos com **Python + Dask + Pandas**.
+Obs.: Até o momento acredito que computadores com menos poder de processamento e memória poderão não atender a demanda desta etapa.
 
 ### 📂 Formato dos Arquivos de Input
 
