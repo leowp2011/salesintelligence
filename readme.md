@@ -139,3 +139,34 @@ O arquivo Power BI (`.pbip`) está localizado em:
 3. **Execute o script `transformation.py` em `2 - Transformation`**
 4. **Abra o Power BI (`.pbip`) e atualize o parâmetro de caminho**
 5. **Atualize os dados no Power BI**
+
+## 🔜 Melhorias Futuras
+
+O projeto poderá ser expandido com as seguintes melhorias estratégicas e operacionais:
+
+1. **Clusterização de Clientes**
+   - Agrupar clientes com características e comportamentos semelhantes para facilitar ações comerciais segmentadas.
+
+2. **Recomendação de Produtos**
+   - Sugerir produtos com base no perfil de compra de clientes semelhantes, aumentando o potencial de vendas cruzadas.
+
+3. **Automação do Processo de Análise**
+   - Unificação e encadeamento de todas as etapas (extração, transformação e visualização) para reduzir a intervenção manual.
+
+4. **Otimização de Recursos Computacionais**
+   - Ajustes no processamento para melhorar o desempenho em ambientes com restrição de memória e tempo de execução.
+
+5. **Validação e Qualidade dos Dados**
+   - Inclusão de verificações para garantir que os dados analisados estejam completos, corretos e consistentes.
+
+6. **Análise Temporal**
+   - Adição de perspectivas ao longo do tempo, como evolução do número de empresas, tendências por setor e sazonalidades.
+
+7. **Enriquecimento Analítico**
+   - Incorporação de atributos complementares que ajudem a entender melhor o contexto de mercado e o perfil das empresas.
+
+8. **Monitoramento Contínuo de Novas Empresas**
+   - Identificação periódica de empresas recém-abertas ou com mudanças cadastrais, com foco nos segmentos estratégicos.
+
+9. **Aprimoramento dos Indicadores**
+   - Expansão e refinamento dos KPIs existentes para suportar análises mais profundas e específicas.
