@@ -2,8 +2,2135 @@ cultureInfo pt-BR
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
-			  "Language": "en-US"
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "fato_empresa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fato empresa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fato_empresas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.cnpj": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "cnpj"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cnpj": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "municipio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "municipio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.cnae_fiscal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "cnae_fiscal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "cnae fiscal": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cnae_fiscal": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.cnpj_basico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "cnpj_basico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cnpj basico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cnpj_basico": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.possui_lead": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "possui_lead"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "possui lead": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "possui_lead": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "possui principal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "possui chief": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "possui main": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "possui central": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "possui prime": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "possui top": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "possui indication": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "possui information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "possui pointer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "possui clue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.atual_cliente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "atual_cliente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "atual cliente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "atual_cliente": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.nome_fantasia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "nome_fantasia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome fantasia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_fantasia": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "fantasia": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.id_regime_tributario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "id_regime_tributario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id regime tributario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_regime_tributario": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identity regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identifier regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "credential regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.razao_social": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "razao_social"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "razao social": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "razao_social": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "razao party": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "razao get-together": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "razao gathering": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "fato_empresa.porte_empresa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_empresas",
+			          "ConceptualProperty": "porte_empresa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "porte empresa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "porte_empresa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_municipio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim municipio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim_municipio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_municipio.municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_municipio",
+			          "ConceptualProperty": "municipio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "municipio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_municipio.descricao_municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_municipio",
+			          "ConceptualProperty": "descricao_municipio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descricao municipio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descricao_municipio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "city": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Location"
+			    },
+			    "dim_municipio.uf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_municipio",
+			          "ConceptualProperty": "uf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "state or province": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Location"
+			    },
+			    "dim_municipio.cep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_municipio",
+			          "ConceptualProperty": "cep"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cep": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "postal code": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Location"
+			    },
+			    "dim_municipio.estado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_municipio",
+			          "ConceptualProperty": "Estado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_cnae": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cnae"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim cnae": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim_cnae": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_cnae.codigo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cnae",
+			          "ConceptualProperty": "codigo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codigo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_cnae.descricao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cnae",
+			          "ConceptualProperty": "descricao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descricao": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_cnae.sigla_secao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cnae",
+			          "ConceptualProperty": "sigla_secao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sigla secao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sigla_secao": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_cnae.desc_secao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cnae",
+			          "ConceptualProperty": "desc_secao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "desc secao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "desc_secao": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "description secao": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        }
+			      ]
+			    },
+			    "dim_regime_tributario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_regime_tributario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim regime tributario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim_regime_tributario": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_regime_tributario.id_regime_tributario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_regime_tributario",
+			          "ConceptualProperty": "id_regime_tributario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id regime tributario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_regime_tributario": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identity regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identifier regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "credential regime tributario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "dim_regime_tributario.descricao_regime_tributario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_regime_tributario",
+			          "ConceptualProperty": "descricao_regime_tributario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descricao regime tributario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descricao_regime_tributario": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_medida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.qtd__empresas_atendidas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Qtd. empresas Atendidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qtd. empresas atendidas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CLIENTES JÁ ATENDIDOS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.qtd__empresas_potenciais": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Qtd. empresas Potenciais"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qtd. empresas potenciais": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CLIENTES POTENCIAIS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.taxa_de_cobertura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "% taxa de cobertura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% taxa de cobertura": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage taxon de cobertura": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct taxon de cobertura": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "TAXA DE COBERTURA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.lead_mapeado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Lead mapeado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lead mapeado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.leads_mapeados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "% leads mapeados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% leads mapeados": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage lead mapeado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct lead mapeado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "dim_porte_empresa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_porte_empresa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim porte empresa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim_porte_empresa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_porte_empresa.porte_empresa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_porte_empresa",
+			          "ConceptualProperty": "porte_empresa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "porte empresa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "porte_empresa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_porte_empresa.descricao_porte_empresa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_porte_empresa",
+			          "ConceptualProperty": "descricao_porte_empresa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descricao porte empresa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descricao_porte_empresa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "fato_empresa_has_dim_porte_empresa": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "dim_porte_empresa": {
+			          "Target": {
+			            "Entity": "dim_porte_empresa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "dim_porte_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_dim_porte_empresas"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_porte_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_porte_empresas_have_fato_empresas"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_dim_municipio": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "dim_municipio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_dim_municipios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_have_fato_empresas"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_dim_regime_tributario": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "dim_regime_tributario": {
+			          "Target": {
+			            "Entity": "dim_regime_tributario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "dim_regime_tributario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_dim_regime_tributarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_regime_tributario"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_regime_tributarios_have_fato_empresas"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_dim_cnae": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "dim_cnae": {
+			          "Target": {
+			            "Entity": "dim_cnae"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "dim_cnae"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_dim_cnaes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cnae"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cnaes_have_fato_empresas"
+			        }
+			      ]
+			    },
+			    "dim_porte_empresa_has_descricao_porte_empresa": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_porte_empresa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_porte_empresa": {
+			          "Target": {
+			            "Entity": "dim_porte_empresa"
+			          }
+			        },
+			        "dim_porte_empresa.descricao_porte_empresa": {
+			          "Target": {
+			            "Entity": "dim_porte_empresa.descricao_porte_empresa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_porte_empresa"
+			            },
+			            "Object": {
+			              "Role": "dim_porte_empresa.descricao_porte_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_porte_empresas_have_descricao_porte_empresas"
+			        }
+			      ]
+			    },
+			    "dim_porte_empresa_has_porte_empresa": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_porte_empresa"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_porte_empresa": {
+			          "Target": {
+			            "Entity": "dim_porte_empresa"
+			          }
+			        },
+			        "dim_porte_empresa.porte_empresa": {
+			          "Target": {
+			            "Entity": "dim_porte_empresa.porte_empresa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_porte_empresa"
+			            },
+			            "Object": {
+			              "Role": "dim_porte_empresa.porte_empresa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_porte_empresas_have_porte_empresas"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_entity__medida_leads_mapeados": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "entity__medida.leads_mapeados": {
+			          "Target": {
+			            "Entity": "entity__medida.leads_mapeados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.leads_mapeados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have__leads_mapeados"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_entity__medida_lead_mapeado": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "entity__medida.lead_mapeado": {
+			          "Target": {
+			            "Entity": "entity__medida.lead_mapeado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.lead_mapeado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_lead_mapeado"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_entity__medida_taxa_de_cobertura": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "entity__medida.taxa_de_cobertura": {
+			          "Target": {
+			            "Entity": "entity__medida.taxa_de_cobertura"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.taxa_de_cobertura"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have__taxa_de_cobertura"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_entity__medida_qtd__empresas_potenciais": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "entity__medida.qtd__empresas_potenciais": {
+			          "Target": {
+			            "Entity": "entity__medida.qtd__empresas_potenciais"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.qtd__empresas_potenciais"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_qtd__empresas_potenciais"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_entity__medida_qtd__empresas_atendidas": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "entity__medida.qtd__empresas_atendidas": {
+			          "Target": {
+			            "Entity": "entity__medida.qtd__empresas_atendidas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.qtd__empresas_atendidas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_qtd__empresas_atendidas"
+			        }
+			      ]
+			    },
+			    "dim_regime_tributario_has_descricao_regime_tributario": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_regime_tributario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_regime_tributario": {
+			          "Target": {
+			            "Entity": "dim_regime_tributario"
+			          }
+			        },
+			        "dim_regime_tributario.descricao_regime_tributario": {
+			          "Target": {
+			            "Entity": "dim_regime_tributario.descricao_regime_tributario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_regime_tributario"
+			            },
+			            "Object": {
+			              "Role": "dim_regime_tributario.descricao_regime_tributario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_regime_tributarios_have_descricao_regime_tributarios"
+			        }
+			      ]
+			    },
+			    "dim_regime_tributario_has_id_regime_tributario": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_regime_tributario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_regime_tributario": {
+			          "Target": {
+			            "Entity": "dim_regime_tributario"
+			          }
+			        },
+			        "dim_regime_tributario.id_regime_tributario": {
+			          "Target": {
+			            "Entity": "dim_regime_tributario.id_regime_tributario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_regime_tributario"
+			            },
+			            "Object": {
+			              "Role": "dim_regime_tributario.id_regime_tributario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_regime_tributarios_have_id_regime_tributarios"
+			        }
+			      ]
+			    },
+			    "dim_cnae_has_desc_secao": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cnae"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_cnae": {
+			          "Target": {
+			            "Entity": "dim_cnae"
+			          }
+			        },
+			        "dim_cnae.desc_secao": {
+			          "Target": {
+			            "Entity": "dim_cnae.desc_secao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cnae"
+			            },
+			            "Object": {
+			              "Role": "dim_cnae.desc_secao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cnaes_have_desc_secaos"
+			        }
+			      ]
+			    },
+			    "dim_cnae_has_sigla_secao": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cnae"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_cnae": {
+			          "Target": {
+			            "Entity": "dim_cnae"
+			          }
+			        },
+			        "dim_cnae.sigla_secao": {
+			          "Target": {
+			            "Entity": "dim_cnae.sigla_secao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cnae"
+			            },
+			            "Object": {
+			              "Role": "dim_cnae.sigla_secao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cnaes_have_sigla_secaos"
+			        }
+			      ]
+			    },
+			    "dim_cnae_has_descricao": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cnae"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_cnae": {
+			          "Target": {
+			            "Entity": "dim_cnae"
+			          }
+			        },
+			        "dim_cnae.descricao": {
+			          "Target": {
+			            "Entity": "dim_cnae.descricao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cnae"
+			            },
+			            "Object": {
+			              "Role": "dim_cnae.descricao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cnaes_have_descricaos"
+			        }
+			      ]
+			    },
+			    "dim_cnae_has_codigo": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cnae"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_cnae": {
+			          "Target": {
+			            "Entity": "dim_cnae"
+			          }
+			        },
+			        "dim_cnae.codigo": {
+			          "Target": {
+			            "Entity": "dim_cnae.codigo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cnae"
+			            },
+			            "Object": {
+			              "Role": "dim_cnae.codigo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cnaes_have_codigos"
+			        }
+			      ]
+			    },
+			    "dim_municipio_has_estado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.estado": {
+			          "Target": {
+			            "Entity": "dim_municipio.estado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dim_municipio.estado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_have_estado"
+			        }
+			      ]
+			    },
+			    "dim_municipio_has_cep": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.cep": {
+			          "Target": {
+			            "Entity": "dim_municipio.cep"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dim_municipio.cep"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_have_ceps"
+			        }
+			      ]
+			    },
+			    "dim_municipio_has_uf": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.uf": {
+			          "Target": {
+			            "Entity": "dim_municipio.uf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dim_municipio.uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_have_ufs"
+			        }
+			      ]
+			    },
+			    "dim_municipio_has_descricao_municipio": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.descricao_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio.descricao_municipio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dim_municipio.descricao_municipio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_have_descricao_municipios"
+			        }
+			      ]
+			    },
+			    "dim_municipio_has_municipio": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio.municipio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dim_municipio.municipio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_have_municipios"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_razao_social": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "fato_empresa.razao_social": {
+			          "Target": {
+			            "Entity": "fato_empresa.razao_social"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa.razao_social"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_razao_socials"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_nome_fantasia": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "fato_empresa.nome_fantasia": {
+			          "Target": {
+			            "Entity": "fato_empresa.nome_fantasia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa.nome_fantasia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_nome_fantasias"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_atual_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "fato_empresa.atual_cliente": {
+			          "Target": {
+			            "Entity": "fato_empresa.atual_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa.atual_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_atual_clientes"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_possui_lead": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "fato_empresa.possui_lead": {
+			          "Target": {
+			            "Entity": "fato_empresa.possui_lead"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa.possui_lead"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_possui_leads"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_cnpj_basico": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "fato_empresa.cnpj_basico": {
+			          "Target": {
+			            "Entity": "fato_empresa.cnpj_basico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa.cnpj_basico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_cnpj_basicos"
+			        }
+			      ]
+			    },
+			    "fato_empresa_has_cnpj": {
+			      "Binding": {
+			        "ConceptualEntity": "fato_empresas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_empresa": {
+			          "Target": {
+			            "Entity": "fato_empresa"
+			          }
+			        },
+			        "fato_empresa.cnpj": {
+			          "Target": {
+			            "Entity": "fato_empresa.cnpj"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_empresa"
+			            },
+			            "Object": {
+			              "Role": "fato_empresa.cnpj"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_empresas_have_cnpjs"
+			        }
+			      ]
+			    },
+			    "dim_municipio_in_cep": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.cep": {
+			          "Target": {
+			            "Entity": "dim_municipio.cep"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "dim_municipio.cep"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_municipio.cep"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_are_in_ceps"
+			        }
+			      ]
+			    },
+			    "dim_municipio_in_uf": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.uf": {
+			          "Target": {
+			            "Entity": "dim_municipio.uf"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "dim_municipio.uf"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_municipio.uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_are_in_ufs"
+			        }
+			      ]
+			    },
+			    "dim_municipio_in_descricao_municipio": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio"
+			          }
+			        },
+			        "dim_municipio.descricao_municipio": {
+			          "Target": {
+			            "Entity": "dim_municipio.descricao_municipio"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "dim_municipio.descricao_municipio"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_municipio"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_municipio.descricao_municipio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_municipios_are_in_descricao_municipios"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
 			}
 		contentType: json
 
