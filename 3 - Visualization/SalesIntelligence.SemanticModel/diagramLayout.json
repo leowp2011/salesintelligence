@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1,
+        "x": 3,
         "y": 0
       },
       "nodes": [
@@ -85,6 +85,19 @@
             "width": 234
           },
           "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 112,
+            "y": 141
+          },
+          "nodeIndex": "fato_recomendacao_produto",
+          "nodeLineageTag": "dbddc2eb-2c55-45fc-8996-ec5b5f81a92a",
+          "size": {
+            "height": 227,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",

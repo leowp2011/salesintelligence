@@ -54,6 +54,23 @@ pd.DataFrame({"cnpj": sorted(cnpjs_alvo)}).to_parquet(os.path.join(silver_path, 
 silver_cnpjs_time = time.time() - start
 print(f"Tempo para criar o arquivo silver de CNPJs alvo: {silver_cnpjs_time:.2f} segundos")
 
+# === Gold: Recomendação de produtos
+# Agrupa e soma o valor por CNPJ e produto
+agrupado = (
+    vendas.groupby(["cnpj", "it-codigo", "familia", "familia_comercial"])["valor"]
+    .sum()
+    .reset_index()
+)
+
+# Rankeia os produtos por CNPJ, do maior para o menor
+agrupado["rank"] = agrupado.groupby("cnpj")["valor"].rank(method="first", ascending=False)
+
+# Mantém apenas os top 5
+top5 = agrupado[agrupado["rank"] <= 5].drop(columns="rank")
+
+# Salva no gold como nova fato
+top5.to_parquet(os.path.join(gold_path, "fato_recomendacao_produto.parquet"), index=False)
+
 # === Gold: Join com as empresas ===
 start = time.time()
 empresas = pd.read_sql("SELECT cnpj_basico, razao_social, porte_empresa FROM empresas", conn)
@@ -139,6 +156,72 @@ dim_regime.to_parquet(os.path.join(gold_path, "dim_regime_tributario.parquet"), 
 dim_time = time.time() - start
 print(f"Tempo para criar as dimensões CNAE e Município e regime tributário e porte_empresa: {dim_time:.2f} segundos")
 
+# === Classificação de Similaridade entre Clientes ===
+start = time.time()
+
+print("Carregando CNAEs secundários")
+cnae_sec_dict = {}
+
+# Define CNPJs de interesse com base na tabela fato
+cnpjs_interesse = set(fato["cnpj"].unique())
+
+# Lê CNAEs secundários somente para os CNPJs de interesse
+for chunk in pd.read_sql("SELECT cnpj, cnae_fiscal_secundaria FROM cnae_secundaria", conn, chunksize=100_000):
+    chunk = chunk.dropna()
+    chunk = chunk[chunk["cnpj"].isin(cnpjs_interesse)]  # filtra aqui
+    for row in chunk.itertuples(index=False):
+        cnae_sec_dict.setdefault(row.cnpj, set()).add(row.cnae_fiscal_secundaria)
+
+# CNAEs primários da fato
+empresa_cnaes = {}
+for row in fato[["cnpj", "cnae_fiscal"]].itertuples(index=False):
+    if pd.notna(row.cnae_fiscal):
+        empresa_cnaes.setdefault(row.cnpj, set()).add(row.cnae_fiscal)
+
+# Junta com os CNAEs secundários
+for cnpj, cnaes in cnae_sec_dict.items():
+    empresa_cnaes.setdefault(cnpj, set()).update(cnaes)
+
+# Separa clientes reais e potenciais
+clientes_reais = set(fato[fato["atual_cliente"] == 1]["cnpj"])
+clientes_potenciais = set(fato[fato["atual_cliente"] == 0]["cnpj"])
+
+# Função para encontrar cliente mais similar
+def encontrar_cliente_mais_similar(cnpj_potencial):
+    cnaes_potencial = empresa_cnaes.get(cnpj_potencial, set())
+    if not cnaes_potencial:
+        return None, 0.0
+
+    max_sim = 0
+    cliente_similar = None
+    for cnpj_real in clientes_reais:
+        cnaes_real = empresa_cnaes.get(cnpj_real, set())
+        if not cnaes_real:
+            continue
+        inter = len(cnaes_potencial & cnaes_real)
+        sim = inter / len(cnaes_real)
+        if sim > max_sim:
+            max_sim = sim
+            cliente_similar = cnpj_real
+    return cliente_similar, max_sim
+
+# Aplica a lógica para todos os clientes potenciais
+resultados = [
+    (cnpj, *encontrar_cliente_mais_similar(cnpj))
+    for cnpj in clientes_potenciais
+]
+
+df_similaridade = pd.DataFrame(resultados, columns=["cnpj", "cnpj_mais_similar", "similaridade"])
+
+# Junta na fato
+fato = fato.merge(df_similaridade, on="cnpj", how="left")
+
+# Salva fato atualizado
+fato.to_parquet(os.path.join(gold_path, "fato_empresas.parquet"), index=False)
+
+similaridade_time = time.time() - start
+print(f"Tempo para classificar similaridade entre clientes: {similaridade_time:.2f} segundos")
+
 # === Exibir tempos ===
 df_tempo = pd.DataFrame([
     ["Bronze - Estabelecimento", bronze_time],
@@ -146,7 +229,8 @@ df_tempo = pd.DataFrame([
     ["Silver - CNPJs alvo", silver_cnpjs_time],
     ["Gold - fato_empresas", gold_fato_time],
     ["Dimensões finais", dim_time],
-    ["Total", bronze_time + silver_cnaes_time + silver_cnpjs_time + gold_fato_time + dim_time]
+    ["Classificação Similaridade Clientes", similaridade_time],
+    ["Total", bronze_time + silver_cnaes_time + silver_cnpjs_time + gold_fato_time + dim_time + similaridade_time]
 ], columns=["Etapa", "Tempo (segundos)"])
 
 print("\n[⏱️] Tempos de execução por etapa:")
