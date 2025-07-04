@@ -43,7 +43,7 @@ Este banco é o ponto de partida para a etapa de transformação.
 
 ## 2️⃣ Transformation
 
-Este passo executa a geração dos dados analíticos com **Python + Dask + Pandas**.
+Este passo executa a geração dos dados analíticos no formato .parquet.
 Obs.: Até o momento acredito que computadores com menos poder de processamento e memória poderão não atender a demanda desta etapa.
 
 ### 📂 Formato dos Arquivos de Input
@@ -52,7 +52,7 @@ Os arquivos devem estar na pasta `inputs/` com os seguintes formatos:
 
 #### `vendas.csv`
 
-Contém os registros de vendas realizadas para clientes da empresa.
+Contém os registros de vendas realizadas para clientes da empresa, precisa estar neste formato.
 
 | Coluna             | Descrição                                      |
 |--------------------|-----------------------------------------------|
@@ -88,13 +88,15 @@ Contém os potenciais leads da área comercial.
 
 ### Tabelas geradas (gold):
 
-| Nome do Arquivo                      | Tipo         | Descrição                                                        |
-|-------------------------------------|--------------|------------------------------------------------------------------|
-| `fato_empresas.parquet`             | Fato         | Empresas ativas com dados enriquecidos e flags (cliente, lead)   |
-| `dim_cnae.parquet`                  | Dimensão     | CNAEs com seções e descrições                                    |
-| `dim_municipio.parquet`            | Dimensão     | Municípios ativos com nome, UF e CEP                             |
-| `dim_porte_empresa.parquet`        | Dimensão     | Tabela de porte com códigos e descrições                         |
-| `dim_regime_tributario.parquet`    | Dimensão     | Regime tributário (MEI, Simples, Lucro Real/Presumido)           |
+| Nome do Arquivo                      | Tipo         | Descrição                                                                 |
+|-------------------------------------|--------------|---------------------------------------------------------------------------|
+| `fato_empresas.parquet`             | Fato         | Empresas ativas com dados enriquecidos, flags e similaridade              |
+| `fato_recomendacao_produto.parquet` | Fato         | Top 5 produtos recomendados por cliente com base em histórico de vendas   |
+| `dim_cnae.parquet`                  | Dimensão     | CNAEs com seções e descrições                                             |
+| `dim_municipio.parquet`             | Dimensão     | Municípios ativos com nome, UF e CEP                                      |
+| `dim_porte_empresa.parquet`        | Dimensão     | Tabela de porte com códigos e descrições                                  |
+| `dim_regime_tributario.parquet`    | Dimensão     | Regime tributário (MEI, Simples, Lucro Real/Presumido)                    |
+
 
 ---
 
@@ -117,6 +119,7 @@ O arquivo Power BI (`.pbip`) está localizado em:
 - Comparativo entre clientes, leads e empresas do mercado
 
 ![Dashboard](images/3-power_bi.png)
+![Dashboard](images/3-power_bi_1.png)
 
 ---
 
@@ -141,6 +144,65 @@ O arquivo Power BI (`.pbip`) está localizado em:
 4. **Abra o Power BI (`.pbip`) e atualize o parâmetro de caminho**
 5. **Atualize os dados no Power BI**
 
+---
+
+## 📚 Dicionário de dados do modelo dimensional
+
+**fato_empresas.parquet**
+| Coluna                 | Tipo      | Descrição                                                    |
+| ---------------------- | --------- | ------------------------------------------------------------ |
+| `cnpj`                 | string    | CNPJ completo da empresa analisada                           |
+| `cnae_fiscal`          | string    | Código do CNAE primário                                      |
+| `municipio`            | string    | Código do município                                          |
+| `cnpj_basico`          | string    | Raiz do CNPJ para junção                                     |
+| `nome_fantasia`        | string    | Nome fantasia do estabelecimento                             |
+| `razao_social`         | string    | Razão social (da tabela empresas)                            |
+| `porte_empresa`        | string    | Código do porte (ver `dim_porte_empresa`)                    |
+| `id_regime_tributario` | int       | Código do regime (ver `dim_regime_tributario`)               |
+| `possui_lead`          | int (0/1) | Flag indicando se possui lead mapeado no CRM                 |
+| `atual_cliente`        | int (0/1) | Flag indicando se é cliente atual (com base no `vendas.csv`) |
+| `cnpj_mais_similar`    | string    | CNPJ do cliente real mais similar                            |
+| `similaridade`         | float     | Percentual de similaridade baseado em interseção de CNAEs    |
+
+**fato_recomendacao_produto.parquet**
+| Coluna              | Tipo   | Descrição                                     |
+| ------------------- | ------ | --------------------------------------------- |
+| `cnpj`              | string | CNPJ do cliente                               |
+| `it-codigo`         | string | Código do item/produto vendido                |
+| `familia`           | string | Família do produto                            |
+| `familia_comercial` | string | Classificação comercial da família            |
+| `valor`             | float  | Valor total das vendas do item para o cliente |
+
+**dim_cnae.parquet**
+| Coluna        | Tipo   | Descrição                                              |
+| ------------- | ------ | ------------------------------------------------------ |
+| `codigo`      | string | Código da subclasse CNAE                               |
+| `descricao`   | string | Descrição da atividade econômica                       |
+| `sigla_secao` | string | Letra identificadora da seção CNAE (ex: C, G, H)       |
+| `desc_secao`  | string | Nome da seção CNAE (ex: INDÚSTRIA, COMÉRCIO, SERVIÇOS) |
+
+**dim_municipio.parquet**
+| Coluna                | Tipo   | Descrição                       |
+| --------------------- | ------ | ------------------------------- |
+| `municipio`           | string | Código do município             |
+| `descricao_municipio` | string | Nome do município               |
+| `uf`                  | string | Unidade Federativa (ex: RS, SP) |
+| `cep`                 | string | CEP do município                |
+
+**dim_porte_empresa.parquet**
+| Coluna                    | Tipo   | Descrição                                   |
+| ------------------------- | ------ | ------------------------------------------- |
+| `porte_empresa`           | string | Código do porte (00, 01, 03, 05)            |
+| `descricao_porte_empresa` | string | Descrição do porte (Micro, Pequeno, Demais) |
+
+**dim_regime_tributario.parquet**
+| Coluna                        | Tipo   | Descrição                                          |
+| ----------------------------- | ------ | -------------------------------------------------- |
+| `id_regime_tributario`        | int    | Código do regime (1 = MEI, 2 = Simples, 3 = Lucro) |
+| `descricao_regime_tributario` | string | Descrição do regime tributário                     |
+
+---
+
 ## 🔜 Melhorias Futuras
 
 O projeto poderá ser expandido com as seguintes melhorias estratégicas e operacionais:
@@ -148,26 +210,23 @@ O projeto poderá ser expandido com as seguintes melhorias estratégicas e opera
 1. **Clusterização de Clientes**
    - Agrupar clientes com características e comportamentos semelhantes para facilitar ações comerciais segmentadas.
 
-2. **Recomendação de Produtos**
-   - Sugerir produtos com base no perfil de compra de clientes semelhantes, aumentando o potencial de vendas cruzadas.
-
-3. **Automação do Processo de Análise**
+2. **Automação do Processo de Análise**
    - Unificação e encadeamento de todas as etapas (extração, transformação e visualização) para reduzir a intervenção manual.
 
-4. **Otimização de Recursos Computacionais**
+3. **Otimização de Recursos Computacionais**
    - Ajustes no processamento para melhorar o desempenho em ambientes com restrição de memória e tempo de execução.
 
-5. **Validação e Qualidade dos Dados**
+4. **Validação e Qualidade dos Dados**
    - Inclusão de verificações para garantir que os dados analisados estejam completos, corretos e consistentes.
 
-6. **Análise Temporal**
+5. **Análise Temporal**
    - Adição de perspectivas ao longo do tempo, como evolução do número de empresas, tendências por setor e sazonalidades.
 
-7. **Enriquecimento Analítico**
+6. **Enriquecimento Analítico**
    - Incorporação de atributos complementares que ajudem a entender melhor o contexto de mercado e o perfil das empresas.
 
-8. **Monitoramento Contínuo de Novas Empresas**
+7. **Monitoramento Contínuo de Novas Empresas**
    - Identificação periódica de empresas recém-abertas ou com mudanças cadastrais, com foco nos segmentos estratégicos.
 
-9. **Aprimoramento dos Indicadores**
+8. **Aprimoramento dos Indicadores**
    - Expansão e refinamento dos KPIs existentes para suportar análises mais profundas e específicas.
